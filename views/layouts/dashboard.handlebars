@@ -1,0 +1,21 @@
+{{>main/boilerplate}}
+<body class="bg-light control" logged-in-user="{{loggedInUser.user_id}}">
+    {{>main/header}}
+    <div class="box-container">
+        <div class="row my-0 flex-lg-grow-1">
+            {{>dashboard/sidenav loggedInUser}}
+            <div class="row col py-4 mx-auto">
+                <section class="container-fluid overflow-hidden">
+                    {{{body}}}
+                </section>
+            </div>
+        </div>
+    </div>
+    {{>main/footer}}
+</body>
+
+{{!-- <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="../assets/js/logout.js"></script>
+<script src="../assets/js/tooltips.js"></script>
+<script src="../assets/js/newGoal.js"></script>
+<script src="../assets/js/tooltips.js"></script> --}}

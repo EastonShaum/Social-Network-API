@@ -1,0 +1,37 @@
+<div class="modal" tabindex="-1" id="edit-account-modal">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content p-3">
+            <div id="edit-modal-header">
+                <h3 class="fw-bold text-secondary">Edit Account</h3>
+            </div>
+            <form action="" id="edit-account-form" user-id="{{user_id}}">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="account-fname-edit" value="{{first_name}}">
+                    <label for="account-fname-edit">First Name:</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="account-lname-edit" value="{{last_name}}">
+                    <label for="account-lname-edit">Last Name:</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="account-username-edit" value="{{username}}">
+                    <label for="account-username-edit">Username:</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="account-email-edit" value="{{email}}">
+                    <label for="account-email-edit">Email Address:</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="account-email-edit" placeholder="Enter ">
+                    <label for="account-password-edit">Password:</label>
+                </div>
+                
+                <div class="d-flex justify-content-end mb-3">
+                    <button type="submit" class="btn btn-secondary me-2 flex-grow-1">Update account!</button>
+                    <a type="button" class="link-unstyled mx-2 p-0 my-auto" data-bs-dismiss="modal"
+                        aria-label="Close">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
