@@ -1,4 +1,4 @@
-const { User } = require('../models/User');
+const { User } = require('../models/index');
 
 const userController = {
     
@@ -32,7 +32,8 @@ const userController = {
     },
     
     addUser({ body }, res) {
-        User.create(body)
+        console.log(2,body)
+        User.create({body})
         .then(dbUserData => res.json(dbUserData))
         .catch(err => res.json(err))
     },
