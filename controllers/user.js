@@ -12,7 +12,7 @@ const userController = {
         .select('-__v')
         .then(dbUserData => res.json(dbUserData))
         .catch(err => {
-            console.log(err);
+            console.log(err, '1');
             res.sendStatus(400)
         })
     },
@@ -33,7 +33,7 @@ const userController = {
     
     addUser({ body }, res) {
         console.log(2,body)
-        User.create({body})
+        User.create( body )
         .then(dbUserData => res.json(dbUserData))
         .catch(err => res.json(err))
     },

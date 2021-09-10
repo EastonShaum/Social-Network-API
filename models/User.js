@@ -5,14 +5,14 @@ const UserSchema = new Schema(
         username: {
             type: String,
             unique: true,
-            required: 'Username is required.',
+            required: [true, 'Username is required.'],
             trim: true
         },
         email: {
             type: String ,
             unique: true,
-            required: 'Username is required.',
-            // match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please enter a valid email address']
+            // required: 'Username is required.',
+            match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please enter a valid email address']
         },
         thoughts: [
             {
@@ -37,7 +37,7 @@ const UserSchema = new Schema(
     }
 );
 
-UserSchema.virtual('firendCount').get(function() {
+UserSchema.virtual('friendCount').get(function() {
     return this.friends.length
 });
 
