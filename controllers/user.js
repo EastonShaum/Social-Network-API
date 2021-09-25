@@ -50,8 +50,14 @@ const userController = {
         .catch(err => res.status(400).json(err))
     },
 
-    deleteUser({ params}, res) {
+    deleteUser({ params }, res) {
         User.findOneAndDelete({ _id: params.id })
+        .then(dbUserData => res.json(dbUserData))
+        .catch(err => res.json(err))
+    },
+
+    deleteUsers(req, res) {
+        User.deleteMany()
         .then(dbUserData => res.json(dbUserData))
         .catch(err => res.json(err))
     }

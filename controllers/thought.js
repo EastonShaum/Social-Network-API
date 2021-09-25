@@ -1,13 +1,15 @@
-const { User, Thought } = require('../models');
+const { User, Thought} = require('../models');
+const ReactionSchema = require('../models/Reaction');
 
 const thoughtController = {
     
     getAllThoughts(req, res) {
+        console.log("Get all thoughts", res)
         Thought.find({})
-        .populate({
-            path: 'reactions',
-            selects: '-__v'
-        })
+        // .populate({
+        //     path: 'reactions',
+        //     selects: '-__v'
+        // })
         .select('-__v')
         .then(dbThoughtData => res.json(dbThoughtData))
         .catch(err => {
@@ -18,10 +20,10 @@ const thoughtController = {
     
     getThoughtById({ params }, res) {
         Thought.findOne({ _id: params.id})
-        .populate({
-            path: 'reactions',
-            selects: '-__v'
-        })
+        // .populate({
+        //     path: 'reactions',
+        //     selects: '-__v'
+        // })
         .select('-__v')
         .then(dbThoughtData => res.json(dbThoughtData))
         .catch(err => {
@@ -64,13 +66,13 @@ const thoughtController = {
     },
 
     addReaction({ params, body }, res) {
-        Reaction.create(body)
+        ReactionSchema.create(body)
             .then(dbReactionData => res.json(dbReactionData))
             .catch(err => res.json(err))
     },
 
     deleteReaction({ params }, res) {
-        Reaction.findOneAndDelete({ _id: params.id })
+        ReactionSchema.findOneAndDelete({ _id: params.id })
         .then(dbReactionData => res.json(dbReactionData))
         .catch(err => res.json(err))
     },
